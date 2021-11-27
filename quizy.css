@@ -1,0 +1,33 @@
+.question{
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.question::before{
+  position: absolute;
+  bottom: 0%;
+  content: "";
+  width: 150px;
+  border-bottom: solid 2px rgb(19, 153, 19);
+}
+
+.option{
+  border:1px solid rgb(209, 205, 205);
+  width: 100%;;
+  box-shadow: 0px 2px rgb(223, 220, 220);
+}
+
+h3{
+  margin: 10px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.unity{
+  max-width: 650px;
+  margin: auto;
+  padding: 10px;
+}
