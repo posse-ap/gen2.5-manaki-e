@@ -59,7 +59,7 @@ img{
 }
 
 .wrong{
-  /* display: none; */
+  display: none;
 }
 
 .correctResult{

@@ -37,12 +37,13 @@
 
 */
 
-
-
 function addClass(trueId, clickedId) {
   document.getElementById(trueId).classList.add('true')
-  if (trueId != clickedId) {
-    document.getElementById(clickedId).classList.add('false')
+  if (trueId == clickedId) {
+    document.getElementById("sucsess").classList.remove("correct");
+  } else {
+    document.getElementById("failed").classList.remove("wrong");
+    document.getElementById(clickedId).classList.add('false');
   }
 }
 
