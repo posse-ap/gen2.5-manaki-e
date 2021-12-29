@@ -102,6 +102,6 @@ img{
   letter-spacing: 0.05em;
 }
 
-.clicked-option-box{
+.clickedOptionBox{
   pointer-events: none;
 }

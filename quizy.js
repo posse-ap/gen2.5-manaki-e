@@ -22,8 +22,8 @@ for (let i = 0; i < answers.length; i++) {
   const main = document.getElementsByClassName("main")[i];
   main.insertAdjacentHTML('beforeend', `<h1 class="question">${i + 1}. この地名はなんて読む？</h1>`);
   main.insertAdjacentHTML('beforeend', `<div class="picture"><img src="picture/question${i}.png" alt=""></div>`);
-  main.insertAdjacentHTML('beforeend', '<div class="option-box"></div>');
-  const optionBox = document.getElementsByClassName("option-box")[i];
+  main.insertAdjacentHTML('beforeend', '<div class="optionBox"></div>');
+  const optionBox = document.getElementsByClassName("optionBox")[i];
 
   for (let j = 0; j < 3; j++) {
     optionBox.insertAdjacentHTML('beforeend', `<h3 class="option" id="${i}_${j}" onclick="addClass('${i}', '${j}')">` + option[i][j] + "</h3>")
@@ -42,7 +42,7 @@ for (let i = 0; i < answers.length; i++) {
 function addClass(options, selected) {
   let select = option[options].indexOf(answers[options]);
   document.getElementById(options + "_" + select).classList.add('true');
-  document.getElementsByClassName('option-box')[options].classList.add('clicked-option-box');
+  document.getElementsByClassName('optionBox')[options].classList.add('clickedOptionBox');
   if (option[options][selected] === answers[options]) {
     document.getElementsByClassName("answerBox")[2 * options].classList.remove("correct");
   } else {
