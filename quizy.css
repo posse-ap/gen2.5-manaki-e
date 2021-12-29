@@ -101,3 +101,7 @@ img{
 .answerSentence{
   letter-spacing: 0.05em;
 }
+
+.clicked-option-box{
+  pointer-events: none;
+}
