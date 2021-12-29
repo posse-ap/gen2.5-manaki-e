@@ -28,17 +28,17 @@ for (let i = 0; i < answers.length; i++) { //表示させたいHTMLの繰り返�
   main.insertAdjacentHTML('beforeend', `<div class="picture"><img src="picture/question${i}.png" alt=""></div>`); //写真の表示
   main.insertAdjacentHTML('beforeend', '<div class="optionBox"></div>'); //選択肢を囲むdivの表示
 
-  for (let j = 0; j < 3; j++) { //選択肢の表示
+  for (let j = 0; j < option[i].length; j++) { //選択肢の表示
     const optionBox = document.getElementsByClassName("optionBox")[i];
     optionBox.insertAdjacentHTML('beforeend', `<h3 class="option" id="${i}_${j}" onclick="addClass('${i}', '${j}')">` + option[i][j] + "</h3>")
   };
 
-  main.insertAdjacentHTML('beforeend', '<div class="answerBox correct"></div>'); //正解回答ボックスの表示
+  main.insertAdjacentHTML('beforeend', '<div class="answerBox correct"></div>'); //正解回答ボックスの準備
   const correct = document.getElementsByClassName('correct')[i];
   correct.insertAdjacentHTML('beforeend', '<p class="correctResult">正解！</p>');
   correct.insertAdjacentHTML('beforeend', `<p class="answerSentence">正解は「${answers[i]}」です！</p>`);
 
-  main.insertAdjacentHTML('beforeend', '<div class="answerBox wrong"></div>'); //不正解回答ボックスの表示
+  main.insertAdjacentHTML('beforeend', '<div class="answerBox wrong"></div>'); //不正解回答ボックスの準備
   const wrong = document.getElementsByClassName('wrong')[i];
   wrong.insertAdjacentHTML('beforeend', '<p class="wrongResult">不正解！</p>');
   wrong.insertAdjacentHTML('beforeend', `<p class="answerSentence">正解は「${answers[i]}」です！</p>`);
