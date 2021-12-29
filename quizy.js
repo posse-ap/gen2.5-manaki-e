@@ -17,11 +17,10 @@ function shuffleArray(inputArray){
 
 for (let i = 0; i < answers.length; i++) {
   shuffleArray(option[i]);
-  console.log(option[i]);
   document.body.insertAdjacentHTML('beforeend', '<div class="main" id="main"></div>');
   const main = document.getElementsByClassName("main")[i];
   main.insertAdjacentHTML('beforeend', `<h1 class="question">${i + 1}. この地名はなんて読む？</h1>`);
-  main.insertAdjacentHTML('beforeend', `<div class="picture"><img src="question${i}.png" alt="高輪"></div>`);
+  main.insertAdjacentHTML('beforeend', `<div class="picture"><img src="picture/question${i}.png" alt=""></div>`);
   main.insertAdjacentHTML('beforeend', '<div class="option-box" id="option-box"></div>');
   const optionBox = document.getElementsByClassName("option-box")[i];
 
