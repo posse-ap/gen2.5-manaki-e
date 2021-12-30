@@ -24,10 +24,11 @@ for (let i = 0; i < answers.length; i++) { //表示させたいHTMLの繰り返�
 
   document.body.insertAdjacentHTML('beforeend', '<div class="main"></div>'); //設問を囲むdivの表示
   const main = document.getElementsByClassName("main")[i];
-  main.insertAdjacentHTML('beforeend', `<h1 class="question">${i + 1}. この地名はなんて読む？</h1>`); //問題文の表示
-  main.insertAdjacentHTML('beforeend', `<div class="picture"><img src="picture/question${i}.png" alt=""></div>`); //写真の表示
-  main.insertAdjacentHTML('beforeend', '<div class="optionBox"></div>'); //選択肢を囲むdivの表示
-
+  var html = `<h1 class="question">${i + 1}. この地名はなんて読む？</h1>` //問題文の表示
+  html += `<div class="picture"><img src="picture/question${i}.png" alt=""></div>`; //写真の表示
+  html += '<div class="optionBox"></div>'; //選択肢を囲むdivの表示
+  main.insertAdjacentHTML('beforeend', html);
+  
   for (let j = 0; j < option[i].length; j++) { //選択肢の表示
     const optionBox = document.getElementsByClassName("optionBox")[i];
     optionBox.insertAdjacentHTML('beforeend', `<h3 class="option" id="${i}_${j}" onclick="addClass('${i}', '${j}')">` + option[i][j] + "</h3>")
