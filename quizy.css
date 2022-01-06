@@ -43,9 +43,6 @@ img{
   box-sizing: border-box;
 }
 
-.correct{
-  display: none;
-}
 
 .correctResult{
   position: relative;
@@ -69,9 +66,6 @@ img{
   letter-spacing: 0.05em;
 }
 
-.wrong{
-  display: none;
-}
 
 .wrongResult{
   position: relative;
@@ -92,6 +86,12 @@ img{
 }
 
 
+/* #####################
+
+以下、jsで扱うclassです
+
+##################### */
+
 .true{
   background-color: royalblue;
   color: azure;
@@ -100,6 +100,14 @@ img{
 .false{
   background-color: #ff5128;
   color: azure;
+}
+
+.correct{
+  display: none;
+}
+
+.wrong{
+  display: none;
 }
 
 .clickedOptionBox{

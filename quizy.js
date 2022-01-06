@@ -29,7 +29,7 @@ for (let i = 0; i < answers.length; i++) { //表示させたいHTMLの繰り返�
     '<div class="optionBox">'; //選択肢を囲むdivの表示
 
   for (let j = 0; j < option[i].length; j++) { //選択肢の表示
-    html += `<h3 class="option" id="${i}_${j}" onclick="addClass('${i}', '${j}')">` + option[i][j] + "</h3>"
+    html += `<h3 class="option" id="${i}_${j}" onclick="selectProcess('${i}', '${j}')">` + option[i][j] + "</h3>"
   };
 
   html +=
@@ -46,16 +46,28 @@ for (let i = 0; i < answers.length; i++) { //表示させたいHTMLの繰り返�
   document.currentScript.insertAdjacentHTML('beforebegin', html);
 }
 
-function addClass(options, selected) { //選択肢がクリックされたときの挙動
+function selectProcess(options, selected) { //選択肢がクリックされたときの挙動
 
-  let select = option[options].indexOf(answers[options]);
-  document.getElementById(options + "_" + select).classList.add('true'); //正解の選択肢を青くする
+  let answerNumber= findAnswerNumber(options);
+  document.getElementById(options + "_" + answerNumber).classList.add('true'); //正解の選択肢を青くする
   document.getElementsByClassName('optionBox')[options].classList.add('clickedOptionBox'); // 二度クリックさせない
 
-  if (option[options][selected] === answers[options]) { //クリックされた選択肢と正解が一致
+  if (judge(options, selected)) { //クリックされた選択肢と正解が一致
     document.getElementsByClassName("answerBox")[2 * options].classList.remove("correct"); //正解回答ボックスの表示
   } else { //クリックされた選択肢と正解が不一致
     document.getElementById(options + "_" + selected).classList.add("false"); //クリックした選択肢を赤くする
     document.getElementsByClassName("answerBox")[2 * options + 1].classList.remove("wrong"); //不正解回答ボックスの表示
   }
+}
+
+/* ################################
+関数の勉強として切り出しました
+###################################*/
+
+function findAnswerNumber(options) {
+  return option[options].indexOf(answers[options])
+}
+
+function judge(options, selected) {
+  return option[options][selected] === answers[options]
 }
