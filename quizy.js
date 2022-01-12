@@ -3,7 +3,7 @@
 const answers = ["たかなわ", "かめいど", "こうじまち", "おなりもん", "とどろき", "しゃくじい", "ぞうしき", "おかちまち", "ししぼね", "こぐれ"] //各設問の正解
 
 const options = [ //各設問の正解を含む選択肢
-  [answers[0], "こうわ", "たかわ"],
+  [answers[0], "こうわ", "たかわ", "たかさわ"],
   [answers[1], "かめど", "かめと"],
   [answers[2], "おかとまち", "かゆまち"],
   [answers[3], "ごせいもん", "おかどもん"],
@@ -15,32 +15,37 @@ const options = [ //各設問の正解を含む選択肢
   [answers[9], "こばく", "こしゃく"],
 ]
 
-function shuffleArray(inputArray) { //選択肢をランダムに表示
+function shuffleOption(inputArray) { //選択肢をランダムに表示
   inputArray.sort(() => Math.random() - 0.5);
 }
 
-for (let i = 0; i < answers.length; i++) { //表示させたいHTMLの繰り返し
-  shuffleArray(options[i]);
+for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //表示させたいHTMLの繰り返し
+  shuffleOption(options[optionNumber]);
 
   let html =
-    '<div class="main">' + //設問を囲むdivの表示
-      `<h1 class="question">${i + 1}. この地名はなんて読む？</h1>` + //問題文の表示
-      `<div class="picture"><img src="picture/question${i}.png" alt=""></div>` + //写真の表示
-      '<div class="optionBox">'; //選択肢を囲むdivの表示
+    '<div class="main">' + //設問を囲むdiv
+      `<h1 class="question">${optionNumber + 1}. この地名はなんて読む？</h1>` + //問題文
+      '<div class="picture">' + //写真の
+        `<img src="picture/question${optionNumber}.png" alt="${answers[optionNumber]}">` +
+      '</div>' + 
+      '<div class="optionBox">'; //選択肢を囲むdiv
 
-  for (let j = 0; j < options[i].length; j++) { //選択肢の表示
-    html += `<p class="options" id="${i}_${j}" onclick="selectProcess('${i}', '${j}')">` + options[i][j] + "</p>"
-  };
+  for (let selectNumber = 0; selectNumber < options[optionNumber].length; selectNumber++) { //選択肢
+    html += 
+        `<button class="option" id="${optionNumber}_${selectNumber}" onclick="selectProcess('${optionNumber}', '${selectNumber}')">` + 
+          options[optionNumber][selectNumber] + 
+        '</button>';
+  }
 
   html +=
       '</div>' +
       '<div class="answerBox correctBox">' + //正解回答ボックスの準備
         '<p class="correctResult">正解！</p>' +
-        `<p class="answerSentence">正解は「${answers[i]}」です！</p>` +
+        `<p class="answerSentence">正解は「${answers[optionNumber]}」です！</p>` +
       '</div>' +
       '<div class="answerBox wrongBox">' + //不正解回答ボックスの準備
         '<p class="wrongResult">不正解！</p>' +
-        `<p class="answerSentence">正解は「${answers[i]}」です！</p>` +
+        `<p class="answerSentence">正解は「${answers[optionNumber]}」です！</p>` +
       '</div>' +
     '</div>';
 
@@ -66,9 +71,9 @@ function selectProcess(optionNumber, selectNumber) { //選択肢がクリック�
 ###################################*/
 
 function findAnswerNumber(optionNumber) {
-  return options[optionNumber].indexOf(answers[optionNumber])
+  return options[optionNumber].indexOf(answers[optionNumber]);
 }
 
 function judge(optionNumber, selectNumber) {
-  return options[optionNumber][selectNumber] === answers[optionNumber]
+  return options[optionNumber][selectNumber] === answers[optionNumber];
 }
