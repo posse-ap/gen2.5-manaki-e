@@ -3,8 +3,8 @@
 const answers = ["たかなわ", "かめいど", "こうじまち", "おなりもん", "とどろき", "しゃくじい", "ぞうしき", "おかちまち", "ししぼね", "こぐれ"] //各設問の正解
 
 const options = [ //各設問の正解を含む選択肢
-  [answers[0], "こうわ", "たかわ", "たかさわ"],
-  [answers[1], "かめど", "かめと"],
+  [answers[0], "こうわ", "たかわ",],
+  [answers[1], "かめど", "かめと", "かめいと"],
   [answers[2], "おかとまち", "かゆまち"],
   [answers[3], "ごせいもん", "おかどもん"],
   [answers[4], "たたら", "たたりき"],
@@ -23,7 +23,7 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
   shuffleOption(options[optionNumber]);
 
   let html =
-    '<div class="main">' + //設問を囲むdiv
+    '<li class="main">' + //設問を囲むdiv
       `<h1 class="question">${optionNumber + 1}. この地名はなんて読む？</h1>` + //問題文
       '<div class="picture">' + //写真の
         `<img src="picture/question${optionNumber}.png" alt="${answers[optionNumber]}">` +
@@ -47,9 +47,11 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
         '<p class="wrongResult">不正解！</p>' +
         `<p class="answerSentence">正解は「${answers[optionNumber]}」です！</p>` +
       '</div>' +
-    '</div>';
+    '</li>';
 
-  document.currentScript.insertAdjacentHTML('beforebegin', html);
+  // idふった箱を作ってそこにHTMLを入れてあげよう！
+  document.getElementById('questions__list').insertAdjacentHTML('beforeend', html);
+  // document.currentScript.insertAdjacentHTML('beforebegin', html);
 }
 
 function selectProcess(optionNumber, selectNumber) { //選択肢がクリックされたときの挙動

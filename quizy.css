@@ -115,3 +115,22 @@ img{
 .clickedOptionBox{
   pointer-events: none;
 }
+
+
+/* #################
+すーさん
+################## */
+
+/*
+問題番号をCSSでつける
+.questions__list {
+  counter-reset: question;
+}
+
+.questions__list li {
+  counter-increment: question;
+}
+
+.questions__list h1::before {
+  content: counter(question) ". ";
+} */
