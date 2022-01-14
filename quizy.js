@@ -23,8 +23,8 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
   shuffleOption(options[optionNumber]);
 
   let html =
-    '<li class="main">' + //設問を囲むdiv
-      `<h1 class="question">${optionNumber + 1}. この地名はなんて読む？</h1>` + //問題文
+    '<div class="main">' + //設問を囲むdiv
+      `<li class="question">${optionNumber + 1}. この地名はなんて読む？</li>` + //問題文
       '<div class="picture">' + //写真の
         `<img src="picture/question${optionNumber}.png" alt="${answers[optionNumber]}">` +
       '</div>' + 
@@ -47,11 +47,10 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
         '<p class="wrongResult">不正解！</p>' +
         `<p class="answerSentence">正解は「${answers[optionNumber]}」です！</p>` +
       '</div>' +
-    '</li>';
+    '</div>';
 
-  // idふった箱を作ってそこにHTMLを入れてあげよう！
-  document.getElementById('questions__list').insertAdjacentHTML('beforeend', html);
-  // document.currentScript.insertAdjacentHTML('beforebegin', html);
+  //HTMLへの書き込み
+  document.getElementById('questionsList').insertAdjacentHTML('beforeend', html);
 }
 
 function selectProcess(optionNumber, selectNumber) { //選択肢がクリックされたときの挙動
