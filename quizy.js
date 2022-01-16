@@ -4,7 +4,7 @@ const answers = ["たかなわ", "かめいど", "こうじまち", "おなり�
 
 const options = [ //各設問の正解を含む選択肢
   [answers[0], "こうわ", "たかわ",],
-  [answers[1], "かめど", "かめと", "かめいと"],
+  [answers[1], "かめど", "かめと", "かめいと"], //選択肢の汎用性を確認
   [answers[2], "おかとまち", "かゆまち"],
   [answers[3], "ごせいもん", "おかどもん"],
   [answers[4], "たたら", "たたりき"],
@@ -50,7 +50,7 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
     '</div>';
 
   //HTMLへの書き込み
-  document.getElementById('questionsList').insertAdjacentHTML('beforeend', html);
+  document.getElementById('wrapper').insertAdjacentHTML('beforeend', html);
 }
 
 function selectProcess(optionNumber, selectNumber) { //選択肢がクリックされたときの挙動
@@ -67,8 +67,11 @@ function selectProcess(optionNumber, selectNumber) { //選択肢がクリック�
   }
 }
 
+
 /* ################################
+
 関数の勉強として切り出しました
+
 ###################################*/
 
 function findAnswerNumber(optionNumber) {
