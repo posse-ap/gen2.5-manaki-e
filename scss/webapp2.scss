@@ -1,0 +1,12 @@
+@use "../scss_partial/header" as header;
+@use "../scss_partial/main" as main;
+@use "../scss_partial/footer" as footer;
+
+@mixin border($weight:1px, $line:solid) {
+  border: header.$main_color $line $weight;
+  box-sizing: border-box;
+}
+
+div{
+  @include border(3px, dotted);
+}
