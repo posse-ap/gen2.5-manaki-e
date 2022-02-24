@@ -1,0 +1,41 @@
+.main{
+  width: 600px;
+  margin: 0px auto;
+  .container{
+    .inner{
+      span{
+        border-bottom: 5px solid greenyellow;
+        margin: 0px 5px;
+      }
+      .img{
+        margin: 40px 0px;
+      }
+      .options{
+        padding: 0px;
+        .option{
+          list-style: none;
+          border: 1px solid rgba(153, 151, 151, 0.5);
+          margin: 10px 0px;
+          padding: 13px;
+          box-shadow: 0px 1px rgb(179, 177, 177);
+          cursor: pointer;
+        }
+      }
+      .answer{
+        background-color: rgb(180, 179, 179);
+        padding: 13px;
+        &_correct{
+          border-bottom: 4px solid rgb(139, 139, 240);
+          margin: 0px;
+        }
+        &_wrong{
+          border-bottom: 4px solid rgb(238, 103, 103);
+          margin: 0px;
+        }
+        &_text{
+          margin: 10px 0px 0px 0px;
+        }
+      }
+    }
+  }
+}
