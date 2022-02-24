@@ -1,41 +1,121 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
 .main{
-  width: 600px;
-  margin: 0px auto;
-  .container{
-    .inner{
-      span{
-        border-bottom: 5px solid greenyellow;
-        margin: 0px 5px;
-      }
-      .img{
-        margin: 40px 0px;
-      }
-      .options{
-        padding: 0px;
-        .option{
-          list-style: none;
-          border: 1px solid rgba(153, 151, 151, 0.5);
-          margin: 10px 0px;
-          padding: 13px;
-          box-shadow: 0px 1px rgb(179, 177, 177);
-          cursor: pointer;
-        }
-      }
-      .answer{
-        background-color: rgb(180, 179, 179);
-        padding: 13px;
-        &_correct{
-          border-bottom: 4px solid rgb(139, 139, 240);
-          margin: 0px;
-        }
-        &_wrong{
-          border-bottom: 4px solid rgb(238, 103, 103);
-          margin: 0px;
-        }
-        &_text{
-          margin: 10px 0px 0px 0px;
-        }
-      }
-    }
-  }
+  max-width: 650px;
+  margin: auto;
+  padding: 10px;
+}
+
+.question{
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.question::before{
+  position: absolute;
+  bottom: 0%;
+  content: "";
+  width: 150px;
+  border-bottom: solid 2px rgb(19, 153, 19);
+}
+
+img{
+  width: 100%;
+}
+
+.option{
+  border:1px solid rgb(209, 205, 205);
+  width: 100%;
+  box-shadow: 0px 1px rgb(223, 220, 220);
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 550;
+  box-sizing: border-box;
+  letter-spacing: 0.1em;
+  list-style: none;
+}
+
+.answerBox{
+  background-color: #f5f5f5;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.correctResult{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+}
+
+.correctResult::before{
+  position: absolute;
+  bottom: 0%;
+  content: "";
+  width: 100%;
+  border-bottom: solid 3px #287dff;
+}
+
+.answerSentence{
+  letter-spacing: 0.05em;
+}
+
+
+.wrongResult{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+}
+
+.wrongResult::before{
+  position: absolute;
+  bottom: 0%;
+  content: "";
+  width: 100%;
+  border-bottom: solid 3px #ff5128;
+}
+
+
+/* #####################
+
+以下、jsで扱うclassです
+
+##################### */
+
+.true{
+  background-color: royalblue;
+  color: azure;
+}
+
+.false{
+  background-color: #ff5128;
+  color: azure;
+}
+
+.correct{
+  display: none;
+}
+
+.wrong{
+  display: none;
+}
+
+.clickedOptionBox{
+  pointer-events: none;
 }
