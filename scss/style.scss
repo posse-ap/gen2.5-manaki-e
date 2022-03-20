@@ -1,11 +1,44 @@
-@use "../scss_partial/header" as header;
-@use "../scss_partial/main" as main;
+@use "./header" as header;
+@use "./main" as main;
+@use "./modal" as modal;
+@use "./sp" as sp;
 
-@mixin border($weight:1px, $line:solid) {
-  border: header.$main_color $line $weight;
+*{
   box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-div{
-  @include border(3px, dotted);
+html {
+  font-size: 10px;
+  background-color: rgba(202, 203, 204, 0.3);
+}
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 950px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+
+/* ===========================
+common
+===========================*/
+
+.push__button {
+  display: block;
+  height: 4rem;
+  width: 18rem;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, rgb(20, 36, 252) 0%, rgb(5, 213, 250) 100%);
+  box-shadow: 0.15rem 0.3rem 1rem 0.2rem rgb(136, 225, 252);
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
 }
