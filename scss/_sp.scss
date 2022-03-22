@@ -10,8 +10,9 @@
     justify-content: center;
   }
 
-  .header{
-    &__submit{
+  .header {
+    grid-template-columns: 10rem 10rem auto;
+    &__submit {
       display: none;
     }
   }
@@ -22,18 +23,18 @@
       grid-template-columns: 19rem 2rem 8.5rem 2rem 8.5rem 2rem 19rem;
       grid-template-rows: 20rem 4rem 30rem 2rem 50rem auto auto;
 
-      .record{
+      .record {
         font-size: 2.5rem;
 
-        &__hour{
+        &__hour {
           font-size: 2.5rem;
         }
 
-        input{
+        input {
           font-size: 5rem;
         }
 
-        .option__item{
+        .option__item {
           font-size: 0.9rem;
           font-weight: 500;
           padding-left: 0rem;
@@ -45,13 +46,13 @@
         grid-row: 1/2;
         @include center(column);
       }
-      
+
       .month__number {
         grid-column: 3/6;
         grid-row: 1/2;
         @include center(column);
       }
-      
+
       .total__number {
         grid-column: 7/8;
         grid-row: 1/2;
@@ -80,11 +81,11 @@
         // vertical-align: middle;
       }
 
-      .sp__push{
+      .sp__push {
         display: block;
         grid-column: 1/8;
         grid-row: 7/8;
-        .push__button{
+        .push__button {
           height: 7rem;
           width: 60rem;
           font-size: 2.5rem;
@@ -93,6 +94,39 @@
           border-radius: 5rem;
         }
       }
+    }
+  }
+
+  .modal {
+
+    .samplemodal-box {
+      width: 100%;
+      max-width: 90rem;
+      vertical-align: bottom;
+      position: relative;
+    }
+
+    &__inners{
+      height: 90rem;
+    }
+
+    &__inner__list {
+      height: auto;
+    }
+
+    input {
+      &[type="text"],
+      &[type="date"] {
+        width: 50rem;
+      }
+      &[type="checkbox"] {
+      }
+    }
+
+    .checkbox__item{
+      height: 4rem;
+      line-height: 4rem;
+      font-size: 2rem;
     }
   }
 }

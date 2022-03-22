@@ -1,12 +1,20 @@
 $(function () {
+
   $('.header__submit button').click(function () {
     $('#sampleModal').fadeIn();
     $('html').addClass('modalset');
   });
+
+  $('.sp__push').click(function () {
+    $('#sampleModal').fadeIn();
+    $('html').addClass('modalset');
+  });
+
   $('.modal__inner__close').click(function () {
     $('#sampleModal').fadeOut();
     $('html').removeClass('modalset');
   });
+  
   $('.modal__inner__push button').click(function () {
     $('.modal__inner1').fadeOut();
     setTimeout(function() {
