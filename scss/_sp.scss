@@ -85,20 +85,11 @@
         display: block;
         grid-column: 1/8;
         grid-row: 7/8;
-        .push__button {
-          height: 7rem;
-          width: 60rem;
-          font-size: 2.5rem;
-          padding: 1rem;
-          margin-bottom: 5rem;
-          border-radius: 5rem;
-        }
       }
     }
   }
 
   .modal {
-
     .samplemodal-box {
       width: 100%;
       max-width: 90rem;
@@ -106,7 +97,7 @@
       position: relative;
     }
 
-    &__inners{
+    &__inners {
       height: 90rem;
     }
 
@@ -119,14 +110,21 @@
       &[type="date"] {
         width: 50rem;
       }
-      &[type="checkbox"] {
-      }
     }
 
-    .checkbox__item{
+    .checkbox__item {
       height: 4rem;
       line-height: 4rem;
       font-size: 2rem;
     }
+  }
+
+  .push__button {
+    height: 7rem;
+    width: 60rem;
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin-bottom: 5rem;
+    border-radius: 5rem;
   }
 }

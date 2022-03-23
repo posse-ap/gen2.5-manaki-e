@@ -37,7 +37,6 @@ topPage
       }
 
       .option__list {
-        margin-top: 3rem;
         text-align: left;
       }
 
@@ -88,11 +87,6 @@ topPage
       grid-row: 1/4;
     }
 
-    .pie__chart {
-      overflow: hidden;
-      margin: 3rem 0;
-    }
-
     .graph__title {
       padding-top: 1rem;
       text-align: left;
@@ -105,13 +99,14 @@ topPage
       text-align: center;
       margin: 5rem 0;
       font-size: 1.5rem;
-      
-      &__appeare{
+
+      &__appear {
         font-weight: 600;
         margin: 0 2rem;
       }
 
-      &__back, &__front{
+      &__back,
+      &__front {
         color: rgb(129, 168, 253);
         font-weight: 900;
         cursor: pointer;
@@ -122,4 +117,18 @@ topPage
       display: none;
     }
   }
+}
+
+.push__button {
+  display: block;
+  height: 4rem;
+  width: 18rem;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, rgb(20, 36, 252) 0%, rgb(5, 213, 250) 100%);
+  box-shadow: 0.15rem 0.3rem 1rem 0.2rem rgb(136, 225, 252);
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
 }

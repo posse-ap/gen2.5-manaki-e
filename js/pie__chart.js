@@ -30,7 +30,7 @@ var plugin1 = {
           ctx.font = Chart.helpers.fontString(fontSize);
 
 
-          if (dataset.data[index] > 0) {
+          if (dataset.data[index] > 10) {
 
             // Just naively convert to string for now
             var dataString = (Math.round(dataset.data[index] / dataSum * 1000) / 10).toString() + "%";
@@ -74,6 +74,9 @@ let chart1 = new Chart(languages, {
       display: false,
       text: '学習言語'
     },
+    tooltips: {
+      enabled: false
+    },
   },
   plugins: [plugin1]
 });
@@ -96,7 +99,10 @@ let chart2 = new Chart(contents, {
     title: {
       display: false,
       text: '学習コンテンツ'
-    }
+    },
+    tooltips: {
+      enabled: false
+    },
   },
   plugins: [plugin1]
 });

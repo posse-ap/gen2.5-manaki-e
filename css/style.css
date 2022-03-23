@@ -65,7 +65,6 @@ topPage
   font-size: 3rem;
 }
 .main .container .record .option__list {
-  margin-top: 3rem;
   text-align: left;
 }
 .main .container .record .option__item {
@@ -106,10 +105,6 @@ topPage
   grid-column: 9/10;
   grid-row: 1/4;
 }
-.main .container .pie__chart {
-  overflow: hidden;
-  margin: 3rem 0;
-}
 .main .container .graph__title {
   padding-top: 1rem;
   text-align: left;
@@ -122,7 +117,7 @@ topPage
   margin: 5rem 0;
   font-size: 1.5rem;
 }
-.main .container .date__appeare {
+.main .container .date__appear {
   font-weight: 600;
   margin: 0 2rem;
 }
@@ -133,6 +128,20 @@ topPage
 }
 .main .container .sp__push {
   display: none;
+}
+
+.push__button {
+  display: block;
+  height: 4rem;
+  width: 18rem;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, #1424fc 0%, #05d5fa 100%);
+  box-shadow: 0.15rem 0.3rem 1rem 0.2rem #88e1fc;
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
 }
 
 /* ==============================
@@ -373,14 +382,6 @@ html.modalset {
     grid-column: 1/8;
     grid-row: 7/8;
   }
-  .main .container .sp__push .push__button {
-    height: 7rem;
-    width: 60rem;
-    font-size: 2.5rem;
-    padding: 1rem;
-    margin-bottom: 5rem;
-    border-radius: 5rem;
-  }
 
   .modal .samplemodal-box {
     width: 100%;
@@ -401,6 +402,15 @@ html.modalset {
     height: 4rem;
     line-height: 4rem;
     font-size: 2rem;
+  }
+
+  .push__button {
+    height: 7rem;
+    width: 60rem;
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin-bottom: 5rem;
+    border-radius: 5rem;
   }
 }
 * {
@@ -423,22 +433,6 @@ html {
   html {
     font-size: 7px;
   }
-}
-/* ===========================
-common
-===========================*/
-.push__button {
-  display: block;
-  height: 4rem;
-  width: 18rem;
-  margin: 0 auto;
-  background-image: linear-gradient(to right, #1424fc 0%, #05d5fa 100%);
-  box-shadow: 0.15rem 0.3rem 1rem 0.2rem #88e1fc;
-  border-radius: 3rem;
-  padding: 1rem 3rem;
-  font-size: 1.5rem;
-  text-align: center;
-  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
