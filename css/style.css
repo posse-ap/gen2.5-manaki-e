@@ -159,7 +159,7 @@ html.modalset {
   overflow: hidden;
 }
 
-.samplemodal {
+.modals {
   display: none;
   width: 100%;
   height: 100%;
@@ -169,7 +169,7 @@ html.modalset {
   z-index: 9999;
 }
 
-.samplemodal-wrap {
+.modal-wrap {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -181,11 +181,11 @@ html.modalset {
   white-space: nowrap;
 }
 
-.samplemodal-wrap::-webkit-scrollbar {
+.modal-wrap::-webkit-scrollbar {
   display: none;
 }
 
-.samplemodal-wrap:after {
+.modal-wrap:after {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -193,7 +193,7 @@ html.modalset {
   height: 100%;
 }
 
-.samplemodal-bg {
+.modal-bg {
   position: absolute;
   left: 0;
   top: 0;
@@ -202,7 +202,7 @@ html.modalset {
   height: 100%;
 }
 
-.samplemodal-box {
+.modal-box {
   width: 100%;
   max-width: 90rem;
   display: inline-block;
@@ -219,7 +219,7 @@ html.modalset {
   border-radius: 5rem;
 }
 
-.samplemodal-box .inner > :first-child {
+.modal-box .inner > :first-child {
   margin-top: 0;
 }
 

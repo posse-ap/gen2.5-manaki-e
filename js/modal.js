@@ -1,17 +1,17 @@
 $(function () {
 
   $('.header__submit button').click(function () {
-    $('#sampleModal').fadeIn();
+    $('.modals').fadeIn();
     $('html').addClass('modalset');
   });
 
   $('.sp__push').click(function () {
-    $('#sampleModal').fadeIn();
+    $('.modals').fadeIn();
     $('html').addClass('modalset');
   });
 
   $('.modal__inner__close').click(function () {
-    $('#sampleModal').fadeOut();
+    $('.modals').fadeOut();
     $('html').removeClass('modalset');
   });
   
