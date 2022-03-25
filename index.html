@@ -32,7 +32,6 @@
         <div class="center">
           <div class="record__title">Today</div>
           <input type="" id="" value="3">
-          <br>
           <span class="record__hour">hour</span>
         </div>
       </div>
@@ -40,7 +39,6 @@
         <div class="center">
           <div class="record__title">Month</div>
           <input type="" id="" value="120">
-          <br>
           <span class="record__hour">hour</span>
         </div>
       </div>
@@ -48,7 +46,6 @@
         <div class="center">
           <div class="record__title">Total</div>
           <input type="" id="" value="1348">
-          <br>
           <span class="record__hour">hour</span>
         </div>
       </div>
@@ -95,9 +92,9 @@
         </ul>
       </div>
       <div class="date">
-        <span class="date__back">＜</span>
+        <button class="date__back">＜</button>
         <span class="date__appear">2022年3月</span>
-        <span class="date__front">＞</span>
+        <button class="date__front">＞</button>
       </div>
       <div class="sp__push">
         <button type="submit" class="push__button">
@@ -126,10 +123,11 @@
                   学習コンテンツ（複数選択可）
                   <ul class="checkbox__list">
                     <li class="checkbox__item">
-                      <input type="checkbox">N予備校
+                      <label><input class="check" type="checkbox"><span>N予備校</span></label>
                     </li>
                     <li class="checkbox__item">
-                      <input type="checkbox">ドットインストール
+                      <!-- <input type="checkbox">ドットインストール -->
+                      <input type="checkbox" id="dotinstall"><label for="dotinstall">ドットインストール</label>
                     </li>
                     <br>
                     <li class="checkbox__item">
