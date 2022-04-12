@@ -396,7 +396,7 @@ html.modalset {
     height: auto;
   }
   .modal input[type=text], .modal input[type=date] {
-    width: 50rem;
+    width: auto;
   }
   .modal .checkbox__item {
     height: 4rem;

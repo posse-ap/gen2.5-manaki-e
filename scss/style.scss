@@ -3,7 +3,7 @@
 @use "./modal" as modal;
 @use "./sp" as sp;
 
-*{
+* {
   box-sizing: border-box;
   max-width: 100%;
   max-height: 100%;
@@ -23,5 +23,3 @@ html {
     font-size: 7px;
   }
 }
-
-
