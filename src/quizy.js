@@ -26,7 +26,7 @@ for (let optionNumber = 0; optionNumber < answers.length; optionNumber++) { //�
     '<div class="main">' + //設問を囲むdiv
       `<li class="question">${optionNumber + 1}. この地名はなんて読む？</li>` + //問題文
       '<div class="picture">' + //写真の
-        `<img src="picture/question${optionNumber}.png" alt="${answers[optionNumber]}">` +
+        `<img src=".img/question${optionNumber}.png" alt="${answers[optionNumber]}">` +
       '</div>' + 
       '<div class="optionBox">'; //選択肢を囲むdiv
 
