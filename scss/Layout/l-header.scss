@@ -1,0 +1,27 @@
+.l-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 24px;
+
+  &__nav__list {
+    display: flex;
+  }
+
+  &__nav__item {
+    display: flex;
+    align-items: center;
+    font-family: "Noto Sans JP";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0.1em;
+    color: #666666;
+
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+}
