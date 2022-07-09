@@ -1,2 +1,2 @@
-.l-header{display:flex;justify-content:space-between;align-items:center;height:80px;padding:0 24px}.l-header__nav__list{display:flex}.l-header__nav__item{display:flex;align-items:center;font-family:"Noto Sans JP";font-style:normal;font-weight:700;font-size:14px;line-height:160%;letter-spacing:.1em;color:#666}.l-header__nav__item:not(:last-child){margin-right:32px}
+.l-header{display:flex;justify-content:space-between;align-items:center;height:80px;padding:0 24px}.l-header__nav__list{display:flex}.l-header__nav__item{display:flex;align-items:center;font-family:"Noto Sans JP";font-style:normal;font-weight:700;font-size:14px;line-height:160%}.l-header__nav__item:not(:last-child){margin-right:32px}
 /*# sourceMappingURL=l-header.min.css.map */
