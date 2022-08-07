@@ -1,3 +1,22 @@
+<?php
+
+require("./dbconect.php");
+
+// SQL文の実行準備
+$stmt = $db->query(" SELECT * from big_questions");
+
+$big_questions = $stmt->fetchAll();
+
+// 変数の値をバインド
+// $stmt->bindValue();
+
+// SQL実行
+// $stmt->execute();
+
+var_dump($big_questions[0]["name"]);
+print_r($big_questions);
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,7 +30,17 @@
 </head>
 
 <body>
-  <ol id="wrapper"></ol>
+  <main>
+    <h1>
+      <?php
+      $id = $_GET['id'];
+      if ($id = 1) {
+        # code..
+      }
+      ?>
+    </h1>
+    <ol id="wrapper"></ol>
+  </main>
   <script src="./js/quizy.js"></script>
 </body>
 

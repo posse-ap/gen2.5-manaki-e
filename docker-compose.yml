@@ -19,11 +19,13 @@ services:
       - db
 
   db:
+    build: ./mysql
     image: mysql:5.7
     ports:
       - 13306:3306
     volumes:
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql/etc/mysql/conf.d:/etc/mysql/conf.d
       - ./mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
