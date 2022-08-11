@@ -1,11 +1,19 @@
 <?php
-
 require("./dbconect.php");
 
-$stmt = $db->query(" SELECT * from big_questions");
-$big_questions = $stmt->fetchAll();
+$id = (int)$_GET['id'];
 
-// print_r($big_questions);
+$stmt__big_questions = $db->query("SELECT * from big_questions WHERE id={$id}");
+$big_questions = $stmt__big_questions->fetchAll();
+
+$stmt__questions = $db->query("SELECT * from questions WHERE big_question_id={$id}");
+$questions = $stmt__questions->fetchAll();
+
+$choices = array();
+for ($i = 0; $i < count($questions); $i++) {
+  $stmt__choices = $db->query("SELECT * from choices WHERE question_id={$questions[$i]['id']}");
+  $choices[] = $stmt__choices->fetchAll();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +27,54 @@ $big_questions = $stmt->fetchAll();
   <link rel="stylesheet" href="./css/quizy.css">
   <title>
     <?php
-    $id = (int)$_GET['id'] - 1;
-    print_r($big_questions[$id]["name"]);
+    echo $big_questions[0]["name"];
     ?>
   </title>
 </head>
 
 <body>
   <main>
-    <ol id="wrapper"></ol>
+    <ol class="questions">
+      <?php
+      for ($i = 0; $i < count($questions); $i++) {
+      ?>
+        <li class="question">
+          <div class="title">
+            <?php
+            echo $i + 1 . ".この地名は何て読む？";
+            ?>
+          </div>
+          <div class="picture">
+            <img src="<?php echo "./img/" . $questions[$i]['image'] ?>" alt="">
+          </div>
+          <div class="optionBox">
+            <?php
+            for ($j = 0; $j < count($choices[$i]); $j++) {
+            ?>
+              <button class="option" id="" onclick="selectProcess()">
+                <?php
+                echo $choices[$i][$j]["name"];
+                ?>
+              </button>
+            <?php
+            }
+            ?>
+          </div>
+          <div class="answerBox correctBox">
+            <p class="correctResult">正解！</p>
+            <p class="answerSentence">正解は「」です！</p>
+          </div>
+          <div class="answerBox wrongBox">
+            <p class="wrongResult">不正解！</p>
+            <p class="answerSentence">正解は「」です！</p>
+          </div>
+        </li>
+      <?php
+      }
+      ?>
+    </ol>
   </main>
-  <script src="./js/quizy.js"></script>
+  <!-- <script src="./js/quizy.js"></script> -->
 </body>
 
 </html>
