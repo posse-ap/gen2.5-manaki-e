@@ -2,18 +2,9 @@
 
 require("./dbconect.php");
 
-// SQL文の実行準備
 $stmt = $db->query(" SELECT * from big_questions");
-
 $big_questions = $stmt->fetchAll();
 
-// 変数の値をバインド
-// $stmt->bindValue();
-
-// SQL実行
-// $stmt->execute();
-
-var_dump($big_questions[0]["name"]);
 print_r($big_questions);
 ?>
 
