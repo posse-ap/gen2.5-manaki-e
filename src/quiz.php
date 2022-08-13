@@ -49,6 +49,7 @@ for ($i = 0; $i < count($questions); $i++) {
           </div>
           <div class="optionBox">
             <?php
+            shuffle($choices[$i]);
             for ($j = 0; $j < count($choices[$i]); $j++) {
             ?>
               <button class="option" id="" onclick="selectProcess()">
