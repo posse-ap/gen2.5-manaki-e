@@ -3,16 +3,22 @@ require("./dbconect.php");
 
 $id = (int)$_GET['id'];
 
-$stmt__big_questions = $db->query("SELECT * from big_questions WHERE id={$id}");
-$big_questions = $stmt__big_questions->fetchAll();
+$stmt__big_questions = $db->prepare("SELECT * from big_questions WHERE id = ?");
+$stmt__big_questions -> bindValue(1,$id);
+$stmt__big_questions->execute();
+$big_questions = $stmt__big_questions->fetchAll(PDO::FETCH_ASSOC);
 
-$stmt__questions = $db->query("SELECT * from questions WHERE big_question_id={$id}");
-$questions = $stmt__questions->fetchAll();
+$stmt__questions = $db->prepare("SELECT * from questions WHERE big_question_id = ?");
+$stmt__questions -> bindValue(1,$id);
+$stmt__questions->execute();
+$questions = $stmt__questions->fetchALL(PDO::FETCH_ASSOC);
 
 $choices = array();
 for ($i = 0; $i < count($questions); $i++) {
-  $stmt__choices = $db->query("SELECT * from choices WHERE question_id={$questions[$i]['id']}");
-  $choices[] = $stmt__choices->fetchAll();
+  $stmt__choices = $db->prepare("SELECT * from choices WHERE question_id = ?");
+  $stmt__choices -> bindValue(1, $questions[$i]["id"]);
+  $stmt__choices->execute();
+  $choices[] = $stmt__choices->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
