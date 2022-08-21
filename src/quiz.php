@@ -32,9 +32,7 @@ for ($i = 0; $i < count($questions); $i++) {
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/quizy.css">
   <title>
-    <?php
-    echo $big_questions[0]["name"];
-    ?>
+    <?= $big_questions[0]["name"]; ?>
   </title>
 </head>
 
@@ -46,12 +44,10 @@ for ($i = 0; $i < count($questions); $i++) {
       ?>
         <li class="question">
           <div class="title">
-            <?php
-            echo $i + 1 . ".この地名は何て読む？";
-            ?>
+            <?= $i + 1 . ".この地名は何て読む？"; ?>
           </div>
           <div class="picture">
-            <img src="<?php echo "./img/" . $questions[$i]['image'] ?>" alt="">
+            <img src="<?= "./img/" . $questions[$i]['image'] ?>" alt="">
           </div>
           <div class="optionBox">
             <?php
@@ -59,9 +55,7 @@ for ($i = 0; $i < count($questions); $i++) {
             for ($j = 0; $j < count($choices[$i]); $j++) {
             ?>
               <button class="option" id="" onclick="selectProcess()">
-                <?php
-                echo $choices[$i][$j]["name"];
-                ?>
+                <?= $choices[$i][$j]["name"]; ?>
               </button>
             <?php
             }
