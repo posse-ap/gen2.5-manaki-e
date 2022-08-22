@@ -1,17 +1,17 @@
-.main{
+.question{
   max-width: 650px;
   margin: auto;
   padding: 10px;
 }
 
-.question{
+.title{
   position: relative;
   font-size: 17px;
   font-weight: 550;
   padding: 12px;
 }
 
-.question::before{
+.title::before{
   position: absolute;
   bottom: 0%;
   content: "";

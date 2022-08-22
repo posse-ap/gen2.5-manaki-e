@@ -16,7 +16,8 @@ DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   big_question_id INT NOT NULL,
-  image VARCHAR(255) NOT NULL
+  image VARCHAR(255) NOT NULL,
+  foreign key(id) references big_questions(id)
 );
 
 INSERT INTO questions (big_question_id, image) VALUES (1,"takanawa.png"), (1, "kameido.png"), (2, "mukainada.png");
@@ -27,7 +28,8 @@ CREATE TABLE choices (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   question_id INT NOT NULL,
   name VARCHAR(255) NOT NULL,
-  valid INT NOT NULL
+  valid INT NOT NULL,
+  foreign key(id) references questions(id)
 );
 
 INSERT INTO choices (question_id, name, valid) VALUES 
