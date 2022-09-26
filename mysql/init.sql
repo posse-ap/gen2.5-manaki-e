@@ -32,23 +32,10 @@ CREATE TABLE languages_record (
   Foreign Key (language_number) REFERENCES languages(id)
 );
 
-INSERT INTO contents SET content='N予備校';
-INSERT INTO contents SET content='ドットインストール';
-INSERT INTO contents SET content='POSSE課題';
+INSERT INTO contents (content) VALUES ('N予備校'), ('ドットインストール'), ('POSSE課題');
 
-INSERT INTO languages SET language='HTML';
-INSERT INTO languages SET language='CSS';
-INSERT INTO languages SET language='JavaScript';
-INSERT INTO languages SET language='PHP';
-INSERT INTO languages SET language='Lalavel';
-INSERT INTO languages SET language='SQL';
-INSERT INTO languages SET language='SHELL';
-INSERT INTO languages SET language='情報システム基礎知識（その他）';
+INSERT INTO languages (language) VALUES ('HTML'), ('CSS'), ('JavaScript'), ('PHP'), ('Lalavel'), ('SQL'), ('SHELL'), ('情報システム基礎知識（その他）');
 
-INSERT INTO contents_record SET date='2022-09-24', content_number=1, content_hour=6;
-INSERT INTO contents_record SET date='2022-09-24', content_number=3, content_hour=2;
-INSERT INTO contents_record SET date='2022-09-25', content_number=1, content_hour=3;
+INSERT INTO contents_record (date, content_number, content_hour) VALUES ('2022-09-24', 1, 2), ('2022-09-24', 3, 2), ('2022-09-25', 1, 2);
 
-INSERT INTO languages_record SET date='2022-09-24', language_number=1, language_hour=4;
-INSERT INTO languages_record SET date='2022-09-24', language_number=5, language_hour=1;
-INSERT INTO languages_record SET date='2022-09-25', language_number=5, language_hour=3;
+INSERT INTO languages_record (date, language_number, language_hour) VALUES ('2022-09-24', 2, 4), ('2022-09-25', 4, 1), ('2022-09-25', 1, 1);
