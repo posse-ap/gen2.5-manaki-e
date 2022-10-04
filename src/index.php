@@ -4,17 +4,17 @@ require('dbconnect.php');
 
 $date = "2022-10-01";
 
-$stmt_hourTotal = $db -> prepare('SELECT sum(hour) AS hour FROM record');
+$stmt_hourTotal = $db -> prepare('SELECT sum(hour) AS hour FROM post');
 $stmt_hourTotal -> execute();
 $hour_total = $stmt_hourTotal -> fetch(PDO::FETCH_ASSOC);
 print_r($hour_total);
 
-$stmt_hourMonth = $db -> prepare('SELECT sum(hour) AS hour FROM record WHERE YEAR(date)=2022 AND MONTH(date)=09');
+$stmt_hourMonth = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=2022 AND MONTH(date)=09');
 $stmt_hourMonth -> execute();
 $hour_month = $stmt_hourMonth -> fetch(PDO::FETCH_ASSOC);
 print_r($hour_month);
 
-$stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM record WHERE YEAR(date)=2022 AND MONTH(date)=10 AND DAY(date)=01');
+$stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=2022 AND MONTH(date)=10 AND DAY(date)=01');
 $stmt_hourToday -> execute();
 $hour_today = $stmt_hourToday -> fetch(PDO::FETCH_ASSOC);
 print_r($hour_today);

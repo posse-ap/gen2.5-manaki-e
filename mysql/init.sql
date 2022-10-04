@@ -18,8 +18,8 @@ CREATE TABLE languages (
 
 INSERT INTO languages (language) VALUES ('HTML'), ('CSS'), ('JavaScript'), ('PHP'), ('Lalavel'), ('SQL'), ('SHELL'), ('情報システム基礎知識（その他）');
 
-DROP TABLE IF EXISTS record;
-CREATE TABLE record (
+DROP TABLE IF EXISTS post;
+CREATE TABLE post (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   date DATETIME NOT NULL,
   content_id INT NOT NULL,
@@ -29,4 +29,4 @@ CREATE TABLE record (
   Foreign Key (language_id) REFERENCES languages(id)
 );
 
-INSERT INTO record (date, content_id, language_id, hour) VALUES ('2022-09-01', 1,1,5), ('2022-10-01', 1,2,3), ('2022-09-01', 2,2,1), ('2022-09-01', 3,5,3), ('2022-10-01', 2,4,2), ('2022-09-01', 2,1,8), ('2022-10-01', 1,6,2), ('2022-08-01', 2,8,3);
+INSERT INTO post (date, content_id, language_id, hour) VALUES ('2022-09-01', 1,1,5), ('2022-10-01', 1,2,3), ('2022-09-01', 2,2,1), ('2022-09-01', 3,5,3), ('2022-10-01', 2,4,2), ('2022-09-01', 2,1,8), ('2022-10-01', 1,6,2), ('2022-08-01', 2,8,3);
