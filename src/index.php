@@ -2,7 +2,22 @@
 session_start();
 require('dbconnect.php');
 
-phpinfo();
+$date = "2022-10-01";
+
+$stmt_hourTotal = $db -> prepare('SELECT sum(hour) AS hour FROM record');
+$stmt_hourTotal -> execute();
+$hour_total = $stmt_hourTotal -> fetch(PDO::FETCH_ASSOC);
+print_r($hour_total);
+
+$stmt_hourMonth = $db -> prepare('SELECT sum(hour) AS hour FROM record WHERE YEAR(date)=2022 AND MONTH(date)=09');
+$stmt_hourMonth -> execute();
+$hour_month = $stmt_hourMonth -> fetch(PDO::FETCH_ASSOC);
+print_r($hour_month);
+
+$stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM record WHERE YEAR(date)=2022 AND MONTH(date)=10 AND DAY(date)=01');
+$stmt_hourToday -> execute();
+$hour_today = $stmt_hourToday -> fetch(PDO::FETCH_ASSOC);
+print_r($hour_today);
 ?>
 
 <!DOCTYPE html>
@@ -35,21 +50,21 @@ phpinfo();
       <div class="record today__number">
         <div class="center">
           <div class="record__title">Today</div>
-          <input type="" id="" value="3" />
+          <input type="" id="" value="<?= $hour_today['hour'] ?>" />
           <span class="record__hour">hour</span>
         </div>
       </div>
       <div class="record month__number">
         <div class="center">
           <div class="record__title">Month</div>
-          <input type="" id="" value="120" />
+          <input type="" id="" value="<?= $hour_month['hour'] ?>" />
           <span class="record__hour">hour</span>
         </div>
       </div>
       <div class="record total__number">
         <div class="center">
           <div class="record__title">Total</div>
-          <input type="" id="" value="1348" />
+          <input type="" id="" value="<?= $hour_total['hour'] ?>" />
           <span class="record__hour">hour</span>
         </div>
       </div>
