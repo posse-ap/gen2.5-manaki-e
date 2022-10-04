@@ -21,7 +21,7 @@ INSERT INTO languages (language) VALUES ('HTML'), ('CSS'), ('JavaScript'), ('PHP
 DROP TABLE IF EXISTS record;
 CREATE TABLE record (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  date DATETIME NOT NULL,
   content_id INT NOT NULL,
   language_id INT NOT NULL,
   hour INT NOT NULL,
