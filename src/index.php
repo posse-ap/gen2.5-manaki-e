@@ -18,6 +18,19 @@ $stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(
 $stmt_hourToday -> execute();
 $hour_today = $stmt_hourToday -> fetch(PDO::FETCH_ASSOC);
 print_r($hour_today);
+
+$stmt_hourDairy = $db -> prepare('SELECT date, sum(hour) AS hour FROM post WHERE YEAR(date)=2022 AND MONTH(date)=10 GROUP BY date ORDER BY date');
+$stmt_hourDairy -> execute();
+$hour_dairy = $stmt_hourDairy -> fetchAll(PDO::FETCH_KEY_PAIR);
+
+$hour_dairy_set = [];
+
+foreach ($hour_dairy as $key => $value) {
+  $replace = substr($key, 8, 2);
+  $hour_dairy_set[$replace] = $value;
+  unset($hour_dairy[$key]);
+}
+print_r($hour_dairy_set);
 ?>
 
 <!DOCTYPE html>
