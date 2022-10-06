@@ -1,6 +1,6 @@
 let monthly = document.getElementById("monthly__statistics");
 
-function myBarChart(dairy) {
+function bar_dairy(dairy) {
   new Chart(monthly, {
     type: "bar",
     data: {
@@ -127,15 +127,14 @@ function myBarChart(dairy) {
   });
 }
 
-bar_graph();
+draw_bar_graph();
 
-async function bar_graph() {
+async function draw_bar_graph() {
   try {
     const url = "/api/getDairyInfo.php";
     const res = await fetch(url);
     const dairy = await res.json();
-    myBarChart(dairy);
-    console.log(dairy.day31);
+    bar_dairy(dairy);
   } catch (error) {
     console.log(error);
   }

@@ -25,7 +25,7 @@ CREATE TABLE
 
 INSERT INTO
     languages (language)
-VALUES ('HTML'), ('CSS'), ('JavaScript'), ('PHP'), ('Lalavel'), ('SQL'), ('SHELL'), ('情報システム基礎知識（その他）');
+VALUES ('HTML'), ('CSS'), ('JavaScript'), ('PHP'), ('Lalavel'), ('SQL'), ('SHELL'), ('情報システム基礎知識');
 
 DROP TABLE IF EXISTS post;
 

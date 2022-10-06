@@ -5,10 +5,10 @@ let languages = document.getElementById("languages__statistics");
 let contents = document.getElementById("contents__statistics");
 
 /* =====================================
-chats.js
+plugin
 ===================================== */
 
-var plugin1 = {
+let plugin = {
   afterDatasetsDraw: function (chart) {
     // To only draw at the end of animation, check for easing === 1
     var ctx = chart.ctx;
@@ -53,59 +53,104 @@ var plugin1 = {
   },
 };
 
-let chart1 = new Chart(languages, {
-  type: "doughnut",
-  data: {
-    // labels: ["JavaScript", "CSS", "PHP", "HTML", "Lalavel", "SQL", "SHELL", "情報システム基礎知識（その他）"],
-    datasets: [
-      {
-        backgroundColor: [
-          "blue",
-          "rgb(91, 64, 243)",
-          "rgb(64, 147, 243)",
-          "rgb(135, 210, 245)",
-          "rgb(231, 175, 236)",
-          "rgb(97, 8, 105)",
-          "rgb(72, 29, 112)",
-          "rgb(113, 115, 235)",
-        ],
-        data: [5.9, 11.8, 23.5, 14.7, 8.8, 29.4, 5.9, 0],
-        borderWidth: [1],
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: false,
-      text: "学習言語",
-    },
-    tooltips: {
-      enabled: false,
-    },
-  },
-  plugins: [plugin1],
-});
+/* =====================================
+chats.js
+===================================== */
 
-let chart2 = new Chart(contents, {
-  type: "doughnut",
-  data: {
-    // labels: ["ドットインストール", "N予備校", "POSSE課題"],
-    datasets: [
-      {
-        backgroundColor: ["blue", "rgb(91, 64, 243)", "rgb(64, 147, 243)"],
-        data: [94.1, 0, 5.9],
-        borderWidth: [1],
+function pie_languages(language) {
+  new Chart(languages, {
+    type: "doughnut",
+    data: {
+      // labels: ["JavaScript", "CSS", "PHP", "HTML", "Lalavel", "SQL", "SHELL", "情報システム基礎知識（その他）"],
+      datasets: [
+        {
+          backgroundColor: [
+            "blue",
+            "rgb(91, 64, 243)",
+            "rgb(64, 147, 243)",
+            "rgb(135, 210, 245)",
+            "rgb(231, 175, 236)",
+            "rgb(97, 8, 105)",
+            "rgb(72, 29, 112)",
+            "rgb(113, 115, 235)",
+          ],
+          data: [
+            Number(language.JavaScript),
+            Number(language.CSS),
+            Number(language.PHP),
+            Number(language.HTML),
+            Number(language.Lalavel),
+            Number(language.SQL),
+            Number(language.SHELL),
+            Number(language.情報システム基礎知識),
+          ],
+          borderWidth: [1],
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: false,
+        text: "学習言語",
       },
-    ],
-  },
-  options: {
-    title: {
-      display: false,
-      text: "学習コンテンツ",
+      tooltips: {
+        enabled: false,
+      },
     },
-    tooltips: {
-      enabled: false,
+    plugins: [plugin],
+  });
+}
+
+function pie_contents(content) {
+  new Chart(contents, {
+    type: "doughnut",
+    data: {
+      // labels: ["ドットインストール", "N予備校", "POSSE課題"],
+      datasets: [
+        {
+          backgroundColor: ["blue", "rgb(91, 64, 243)", "rgb(64, 147, 243)"],
+          data: [
+            Number(content.ドットインストール),
+            Number(content.N予備校),
+            Number(content.POSSE課題),
+          ],
+          borderWidth: [1],
+        },
+      ],
     },
-  },
-  plugins: [plugin1],
-});
+    options: {
+      title: {
+        display: false,
+        text: "学習コンテンツ",
+      },
+      tooltips: {
+        enabled: false,
+      },
+    },
+    plugins: [plugin],
+  });
+}
+
+draw_pie_chart();
+
+async function draw_pie_chart() {
+  try {
+    const url = "/api/getLanguageInfo.php";
+    const res = await fetch(url);
+    const language = await res.json();
+    pie_languages(language);
+    console.log(language);
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    const url = "/api/getContentInfo.php";
+    const res = await fetch(url);
+    const content = await res.json();
+    pie_contents(content);
+    console.log(content);
+  } catch (error) {
+    console.log(error);
+  }
+}
