@@ -1,0 +1,134 @@
+/* =====================
+topPage
+===================== */
+
+.main {
+  .container {
+    margin: 0 auto;
+    width: 120rem;
+    display: grid;
+    grid-template-columns: 18rem 2rem 18rem 2rem 18rem 2rem 29rem 2rem 29rem;
+    grid-template-rows: 13rem 2rem 40rem auto;
+
+    .record {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: -0.1rem 0.1rem 5px -3px gray;
+      text-align: center;
+      padding: 2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+
+      &__title {
+        color: rgb(139, 164, 247);
+        padding-bottom: 1rem;
+      }
+
+      &__hour {
+        font-size: 1.5rem;
+        color: rgb(226, 226, 226);
+      }
+
+      input {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 1rem;
+        font-size: 3rem;
+      }
+
+      .option__list {
+        text-align: left;
+      }
+
+      .option__item {
+        display: inline;
+        line-height: 3.5rem;
+        font-size: 1.3rem;
+        font-weight: lighter;
+      }
+
+      .circle {
+        transform: translateY(0.3rem);
+        margin-left: 1rem;
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+      }
+    }
+
+    .today__number {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+
+    .month__number {
+      grid-column: 3/4;
+      grid-row: 1/2;
+    }
+
+    .total__number {
+      grid-column: 5/6;
+      grid-row: 1/2;
+    }
+
+    .month__report {
+      grid-column: 1/6;
+      grid-row: 3/4;
+    }
+
+    .languages__report {
+      grid-column: 7/8;
+      grid-row: 1/4;
+    }
+
+    .contents__report {
+      grid-column: 9/10;
+      grid-row: 1/4;
+    }
+
+    .graph__title {
+      padding-top: 1rem;
+      text-align: left;
+      font-size: 1.7rem;
+    }
+
+    .date {
+      grid-column: 1/10;
+      grid-row: 4/5;
+      text-align: center;
+      margin: 5rem 0;
+      font-size: 1.5rem;
+
+      &__appear {
+        font-weight: 600;
+        margin: 0 2rem;
+      }
+
+      &__back,
+      &__front {
+        color: rgb(129, 168, 253);
+        font-weight: 900;
+        cursor: pointer;
+      }
+    }
+
+    .sp__push {
+      display: none;
+    }
+  }
+}
+
+.push__button {
+  display: block;
+  height: 4rem;
+  width: 18rem;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, rgb(20, 36, 252) 0%, rgb(5, 213, 250) 100%);
+  box-shadow: 0.15rem 0.3rem 1rem 0.2rem rgb(136, 225, 252);
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+}
