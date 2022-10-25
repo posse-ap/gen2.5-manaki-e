@@ -2,22 +2,26 @@
 session_start();
 require('dbconnect.php');
 
-$date = "2022-10-01";
+$year = date("Y");
+$month = date("m");
+$date = date("d");
 
 $stmt_hourTotal = $db -> prepare('SELECT sum(hour) AS hour FROM post');
 $stmt_hourTotal -> execute();
 $hour_total = $stmt_hourTotal -> fetch(PDO::FETCH_ASSOC);
-print_r($hour_total);
 
-$stmt_hourMonth = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=2022 AND MONTH(date)=09');
+$stmt_hourMonth = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=? AND MONTH(date)=?');
+$stmt_hourMonth -> bindValue(1,$year);
+$stmt_hourMonth -> bindValue(2,$month);
 $stmt_hourMonth -> execute();
 $hour_month = $stmt_hourMonth -> fetch(PDO::FETCH_ASSOC);
-print_r($hour_month);
 
-$stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=2022 AND MONTH(date)=10 AND DAY(date)=01');
+$stmt_hourToday = $db -> prepare('SELECT sum(hour) AS hour FROM post WHERE YEAR(date)=? AND MONTH(date)=? AND DAY(date)=?');
+$stmt_hourToday -> bindValue(1,$year);
+$stmt_hourToday -> bindValue(2,$month);
+$stmt_hourToday -> bindValue(3,$date);
 $stmt_hourToday -> execute();
 $hour_today = $stmt_hourToday -> fetch(PDO::FETCH_ASSOC);
-print_r($hour_today);
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +116,7 @@ print_r($hour_today);
       </div>
       <div class="date">
         <button class="date__back">＜</button>
-        <span class="date__appear">2022年3月</span>
+        <span class="date__appear"><?= $year."年".$month."月" ?></span>
         <button class="date__front">＞</button>
       </div>
       <div class="sp__push">
